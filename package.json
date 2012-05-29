@@ -1,0 +1,12 @@
+{
+    "name": "placeholder",
+    "description": "implements placeholder attributes in older browsers",
+    "version": "0.1.0",
+    "author": "Tyler Ball <tball@trapeze.com>",
+    "devDependencies": {
+        "mocha": "*",
+        "chai": "*",
+        "underscore": "*"
+    },
+    "main": "./dist/js/placeholder.js"
+}

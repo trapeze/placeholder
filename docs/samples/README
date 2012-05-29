@@ -1,0 +1,26 @@
+Application Samples
+===================
+
+* * *
+Introduction
+------------
+
+Included in this sample is sample jQuery and Trapeze js code to make the app run.  When using in your 
+own project, import these apps from Trapezes JavaScriptAps.  This application doesn't require any specific CSS
+
+* * *
+Linking your Application to the Samples
+---------------------------------------
+
+In order for the samples to be viewable directly through http://office.trapeze.com/svn, you should create relative links from your sample `.html` file pointing to the `dist` folder of your application. e.g:
+
+        <script type="text/javascript" src="../../dist/[TODO: app-name].js"></script>
+
+
+**NOTES**:
+
+- **DO NOT** copy your application files over to the `docs/samples/media/`, so you don't have to replicate the changes done in samples to the main files of the application.
+
+- **DO NOT** change the files on the `app-name/dist` folder this folder should be generated using the instructions on the application `README` file. Use the `app-name/src/` files to make any changes to your application.
+
+- If your `app-name/dist` folder also include `CSS files`, images, or any other required asset please link directly to these as well from inside your `.html` sample file.

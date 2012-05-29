@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Inline Labels - Use Cases</title>
+    
+    <link rel="stylesheet" type="text/css" href="media/css/screen.css" media="all" />
+    
+    <script type="text/javascript" src="media/js/jquery-1.4.1.js"></script>
+    <script type="text/javascript" src="media/js/trapeze.js"></script>
+
+    
+    <script type="text/javascript" src="../../dist/inline-label.js"></script>
+</head>
+
+<body>
+    <div id="Container">
+        <div id="ContentWrapper" class="full-page">
+            <div id="MainContent">
+                <h1>Inline Labels - Use Cases</h1>
+                <div class="sample">
+                    <h2>Simple Case</h2>
+                    <p>InlineLabel initialized with a CSS selector identifying the only field of the form. The form field has both a default value and a label associated with it, it gives precedency for the default value, therefore keeping the label as it is.</p>
+                    <p>When the submit button is clicked before the form is posted the input:text if not changed gets its original value.</p>
+                    <form id="SampleForm1" action="#TODO" method="post">
+                        <label for="id_textfield1">Site Search</label>
+                        <input type="text" id="id_textfield1" value="default value" />
+                        <input type="submit" />
+                    </form>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                            $(function(){
+                                new trapeze.InlineLabel({selector: '#id_textfield1'});
+                            });
+                        //]]>
+                    </script>
+                </div>
+                <div class="sample">
+                    <h2>Multiple Selectors</h2>
+                    <p>InlineLabel initialized with both form fields (input:text and textarea). The input field doesn't have a default value, so it's label is used and removed (by default) from the form. The textarea has both a default value and a label, so the default value takes precedence and the label is kept as it is (not removed).</p>
+                    <p>When the form is subimitted the input:text becomes empty and the textarea keeps its original default value.</p>
+                    <form id="SampleForm2" action="#TODO" method="post">
+                        <label for="id_textfield2">Site Search</label>
+                        <input type="text" id="id_textfield2" />
+                        <label for="id_textarea1">comment</label>
+                        <textarea id="id_textarea1">test of textarea</textarea>
+                        <input type="submit" />
+                    </form>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                            $(function(){
+                                new trapeze.InlineLabel({selector: '#id_textfield2, #id_textarea1'});
+                            });
+                        //]]>
+                    </script>
+                </div>
+                <div class="sample">
+                    <h2>Complex Selectors</h2>
+                    <p>This example shows two forms, from the 'Form 1' we will use the selector identifying it's first input:text, from the 'Form 2' we will use the form itself as a selector. We will combine both selectors into one call to the InlineLabel.</p>
+                    <h3>Form 1</h3>
+                    <form id="SampleForm2" action="#TODO" method="post">
+                        <label for="id_textfield3">Site Search</label>
+                        <input type="text" id="id_textfield3" value="test" />
+                        <label for="id_textfield4">Field (not using inlinelabel)</label>
+                        <input type="text" id="id_textfield4" />
+                        <input type="submit" />
+                    </form>
+                    <h3>Form 2</h3>
+                    <form id="SampleForm3" action="#TODO" method="post">
+                        <label for="id_textfield5">Site Search</label>
+                        <input type="text" id="id_textfield5" />
+                        <label for="id_textarea2">Comment</label>
+                        <textarea id="id_textarea2"></textarea>
+                        <input type="submit" />
+                    </form>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                            $(function(){
+                                new trapeze.InlineLabel({selector: '#id_textfield3, #SampleForm3'});
+                            });
+                        //]]>
+                    </script>
+                </div>
+                <div class="sample">
+                    <h2>Form Selector - Using Labels but keeping them</h2>
+                    <p>This sample shows the inlinelabel being used on the entire form. The form has many types of fields, but just input:text and textarea are affected. Also all fields affected don't have a default value, but just a label that will be used, but will not be removed.</p>
+                    <form id="SampleForm4" action="#TODO" method="post">
+                        <ul class="sample-options">
+                            <li><input id="opt_1" type="radio" value="opt1" name="options" /><label for="opt_1">Option 1</label></li>
+                            <li><input id="opt_2" type="radio" value="opt2" name="options" /><label for="opt_2">Option 2</label></li>
+                        </ul>
+                        <label for="id_textfield6">Site Search</label>
+                        <input type="text" id="id_textfield6" />
+                        <ul class="sample-options">
+                            <li><input id="opt_3" type="checkbox" name="filters" value="Option3" /><label for="opt_3">Option 3</label></li>
+                            <li><input id="opt_4" type="checkbox" name="filters" value="Option4" /><label for="opt_4">Option 4</label></li>
+                        </ul>
+                        <label for="id_textarea3">Comments</label>
+                        <textarea id="id_textarea3"></textarea>
+                        <input type="submit" />
+                    </form>
+                    <script type="text/javascript">
+                        //<![CDATA[
+                            $(function(){
+                                new trapeze.InlineLabel({selector: '#SampleForm4', remove_label: false});
+                            });
+                        //]]>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
