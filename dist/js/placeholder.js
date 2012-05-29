@@ -11,6 +11,10 @@
         VERSION = '0.1';
 
 
+    // Define Trapeze namespace, if necessary
+    var Trapeze = (global.Trapeze || (global.Trapeze = { }));
+
+
     // Map dependancies to local variables.
     var _           = global._,
         $           = global.jQuery,
@@ -30,7 +34,49 @@
         // Test Modernizr and Modernizr feature tests.
         debug.require('Modernizr not found', Modernizr);
         debug.require('Modernizr.placeholder not found', Modernizr.placeholder);
-        debug.require('Modernizr.rgba not found', Modernizr.rgba);
     }
 
-})
+
+    // Placeholder
+    // ===========
+
+    Placeholder = Trapeze.Placeholder = function (options) {
+        var defaults = {
+                selector : "[placeholder]",
+                enabled  : true,
+
+                classnames : {
+                    active : 'phr',
+                    state_active : 'active',
+                    state_inactive : 'inactive'
+                }
+            },
+            
+            extended_defaults = this._extendDefaults();
+        
+        if (!_.isObject(extended_defaults)) extended_defaults = { };
+
+        this.config     = $.extend(true, defaults, extended_defaults, options || { });
+        this.enabled    = this.config.enabled;
+
+        this._initialize();
+    };
+
+    Placeholder.prototype._extendDefaults = function () {
+    };
+
+    Placeholder.prototype._initialize = function () {
+        this.selectElements();
+    };
+
+    Placeholder.prototype.selectElements = function () {
+        var config = this.config,
+            selector = config.selector;
+
+        if (! Modernizr.input.placeholder) {
+            this.$elements = $(selector);
+        }
+    };
+
+}).call(this);
+

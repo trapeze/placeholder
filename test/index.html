@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Placeholder tests</title>
+        <link rel="stylesheet" href="../node_modules/mocha/mocha.css"  />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="../node_modules/underscore/underscore-min.js"></script>
+        <script src="../src/modernizr.js"></script>
+        <script src="../node_modules/mocha/mocha.js"></script>
+        <script src="../node_modules/chai/chai.js"></script>
+        <script>
+            mocha.setup('tdd')
+            $(function () {
+                mocha.run()
+            })
+        </script>
+
+        <!-- source file -->
+        <script src="../dist/js/placeholder.js"></script>
+
+        <!-- test file  -->
+        <script src="placeholder.test.js"></script>
+
+        <style>
+            form {
+                margin-top: 10em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="mocha"></div>
+
+        <form>
+            <input type="text" placeholder="Placeholder" />
+        </form>
+    </body>
+</html>
