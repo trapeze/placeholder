@@ -50,26 +50,20 @@ To use the application in your project follow the instructions below:
 
 1. Make sure the app and all its dependencies are included.
 
-1. Instantiate the application on the template, passing at least the `selector`
-   property. e.g:
+1. Add the `placeholder` attribute to your form elements:
 
-        <script type="text/javascript">
-            //<![CDATA[
-                $(function(){
-                    new trapeze.InlineLabel({selector: "#id_site_search"});
-                });
-            //]]>
-        </script>
+    <input type="text" name="name" placeholder="Your Name" />
+    <textarea name="message" placeholder="Write a message"></textarea>
 
-### Advanced Usage
+1. Instantiate the app somewhere in your javascript:
 
-For details on advanced use and customization of this application please refer
-to the [use guide](docs/use-guide.mdwn).
+    Trapeze.placeholder = new Trapeze.Placeholder();
 
 Running the tests
 -----------------
 
-Requirements:
+Requirements:  
+
 * node.js
 * npm packages:
 

@@ -22,42 +22,75 @@ suite('Placeholder Globals', function () {
 $(function () {
     suite('Placeholder Active', function () {
         Modernizr.input.placeholder = false;
-        Trapeze.old = new Trapeze.Placeholder();
+        Trapeze.ph = new Trapeze.Placeholder();
 
-        var old = Trapeze.old,
+        var ph = Trapeze.ph,
             val = 'Placeholder',
-            iclass = old.config.classnames.state_inactive,
-            aclass = old.config.classnames.state_active;
+            iclass = ph.config.classnames.state_inactive,
+            aclass = ph.config.classnames.state_active;
 
         test('Elements with Placeholders should be selected', function () {
-            old.$elements.should.have.length(1);
+            ph.$elements.should.have.length(2);
+        });
+
+        test('Parent form should be selected', function () {
+            ph.$form.should.have.length(1);
         });
 
         test('Element should contain value of placeholder attribute', 
         function () {
-            old.$elements.attr('value').should.eql(val);
+            ph.$elements.attr('value').should.eql(val);
         });
 
         test('Element should have inactive class', function () {
-            var iclass = old.config.classnames.state_inactive;
+            var iclass = ph.config.classnames.state_inactive;
 
-            old.$elements.hasClass(iclass).should.be.true;
+            ph.$elements.hasClass(iclass).should.be.true;
         });
 
         test('Element should have empty value and active class when focused', 
         function () {
-            old.$elements.focus();
+            ph.$elements.each(function(i, obj) {
+                var $obj = $(obj);
 
-            old.$elements.val().should.eql('');
-            old.$elements.hasClass(aclass).should.be.true;
+                $obj.focus().val().should.eql('');
+                $obj.hasClass(aclass).should.be.true;
+            });
         });
 
         test('Element should have original value and inactive class when blurred', 
         function () {
-            old.$elements.blur();
+            ph.$elements.blur();
 
-            old.$elements.val().should.eql(val);
-            old.$elements.hasClass(iclass).should.be.true;
+            ph.$elements.val().should.eql(val);
+            ph.$elements.hasClass(iclass).should.be.true;
+        });
+
+        test('On user input, placeholder should not repopulate on blur',
+        function () {
+            var newinput = "user input";
+
+            ph.$elements.focus().val(newinput).blur();
+            ph.$elements.val().should.eql(newinput);
+        });
+
+        test('On reactivation of form, input should not clear',
+        function () {
+            var newinput = "user input";
+
+            ph.$elements.val(newinput).focus();
+            ph.$elements.val().should.eql(newinput);
+        });
+
+        test('On form submit, inputs with no user interaction should be blank',
+        function () {
+            ph.$form.submit(function(evt) {
+                evt.preventDefault();
+
+                ph.$elements.each(function (i, obj) {
+                    $(obj).val().should.eql('');
+                });
+            });
         });
     });
 });
