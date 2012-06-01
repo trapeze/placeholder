@@ -28,10 +28,8 @@ Features
 Installation
 ------------
 
-For installation of the javascript app follow the steps on the
-**Adding/Updating a JavaScript Application** section of the [JavaScript Apps
-Best
-Practice](https://office.trapeze.com/wiki/best_practices/javascript_apps/).
+Checkout the app into your project's `src/js` folder and link it into
+`static/lib`.
 
 ### Dependencies
 
