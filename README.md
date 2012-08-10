@@ -25,7 +25,8 @@ Features
 Dependencies
 ------------
 
-* jQuery 1.7+
+* [jQuery](http://jquery.com/) 1.7+
+* [underscore.js](http://underscorejs.org/)
 * A build of Modernizr with [tests for Input
   Attributes](http://modernizr.com/download/#-input).
 
