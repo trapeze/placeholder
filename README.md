@@ -1,16 +1,16 @@
 Placeholder
 ===========
 
+
 Introduction
 ------------
 
 `Placeholder` adds support for the "placeholder" input attribute to older
 browsers.
 
-See [sample](docs/samples/index.html)
 
 Features
------------
+--------
 
 - Takes the label of form field (input.text or textarea) and uses it as that
   field's temporary default value.
@@ -25,45 +25,45 @@ Features
   replaced with the fields original value, or empty if the field didn't have a
   default value.
 
-Installation
+
+Dependencies
 ------------
-
-Checkout the app into your project's `src/js` folder and link it into
-`static/lib`.
-
-### Dependencies
-
-In order to use the javascript `inline-label` app you will need the following:
-
-#### JavaScript Dependencies
 
 * jQuery 1.7+
 * A build of Modernizr with [tests for Input
   Attributes](http://modernizr.com/download/#-input).
+
 
 Usage
 -----
 
 To use the application in your project follow the instructions below:
 
-1. Make sure the app and all its dependencies are included.
+1. Include `dist/placeholder.min.js`.
 
 1. Add the `placeholder` attribute to your form elements:
 
     <input type="text" name="name" placeholder="Your Name" />
     <textarea name="message" placeholder="Write a message"></textarea>
 
-1. Instantiate the app somewhere in your javascript:
+1. Instantiate the app:
 
     Trapeze.placeholder = new Trapeze.Placeholder();
 
-Running the tests
------------------
 
-Requirements:  
+Developing
+----------
 
-* node.js
-* npm packages:
+[Install node.js and npm](http://nodejs.org/#download).
 
-        npm install -g ender
+
+### Running tests
+
+Run the following from the placeholder directory.
+
+        npm install
         open test/index.html
+
+### Distribution
+
+    grunt min
