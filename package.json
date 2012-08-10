@@ -8,5 +8,5 @@
         "chai": "*",
         "underscore": "*"
     },
-    "main": "./lib/placeholder.js"
+    "main": "./src/placeholder.js"
 }
