@@ -1,11 +1,7 @@
 Placeholder
 ===========
 
-
-Introduction
-------------
-
-`Placeholder` adds support for the "placeholder" input attribute to older
+`Placeholder` adds support for the "placeholder" input attribute in older
 browsers.
 
 
@@ -43,12 +39,12 @@ To use the application in your project follow the instructions below:
 
 1. Add the `placeholder` attribute to your form elements:
 
-    <input type="text" name="name" placeholder="Your Name" />
-    <textarea name="message" placeholder="Write a message"></textarea>
+        <input type="text" name="name" placeholder="Your Name" />
+        <textarea name="message" placeholder="Write a message"></textarea>
 
 1. Instantiate the app:
 
-    Trapeze.placeholder = new Trapeze.Placeholder();
+        Trapeze.placeholder = new Trapeze.Placeholder();
 
 
 Developing
