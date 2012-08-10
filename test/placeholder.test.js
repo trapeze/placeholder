@@ -12,7 +12,7 @@ suite('Placeholder Globals', function () {
         Trapeze.Placeholder.should.be.a('function');
     });
 
-    test('Placeholder instance "ph" should be instance of Placeholder', 
+    test('Placeholder instance "ph" should be instance of Placeholder',
     function() {
         Trapeze.Placeholder.should.be.a('function');
         ph.should.be.instanceOf(Trapeze.Placeholder);
@@ -37,7 +37,7 @@ $(function () {
             ph.$form.should.have.length(1);
         });
 
-        test('Element should contain value of placeholder attribute', 
+        test('Element should contain value of placeholder attribute',
         function () {
             ph.$elements.attr('value').should.eql(val);
         });
@@ -45,25 +45,25 @@ $(function () {
         test('Element should have inactive class', function () {
             var iclass = ph.config.classnames.state_inactive;
 
-            ph.$elements.hasClass(iclass).should.be.true;
+            ph.$elements.hasClass(iclass).should.be['true'];
         });
 
-        test('Element should have empty value and active class when focused', 
+        test('Element should have empty value and active class when focused',
         function () {
             ph.$elements.each(function(i, obj) {
                 var $obj = $(obj);
 
                 $obj.focus().val().should.eql('');
-                $obj.hasClass(aclass).should.be.true;
+                $obj.hasClass(aclass).should.be['true'];
             });
         });
 
-        test('Element should have original value and inactive class when blurred', 
+        test('Element should have original value and inactive class when blurred',
         function () {
             ph.$elements.blur();
 
             ph.$elements.val().should.eql(val);
-            ph.$elements.hasClass(iclass).should.be.true;
+            ph.$elements.hasClass(iclass).should.be['true'];
         });
 
         test('On user input, placeholder should not repopulate on blur',

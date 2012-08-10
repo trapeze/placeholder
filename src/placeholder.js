@@ -119,7 +119,7 @@
         });
 
         $obj.on('blur', function(evt) {
-            if ($obj.val() == $obj.attr('placeholder') || $obj.val() == '') {
+            if ($obj.val() == $obj.attr('placeholder') || $obj.val() === '') {
                 $obj.val($obj.attr('placeholder')).removeClass(classnames.state_active)
                     .addClass(classnames.state_inactive);
             }
