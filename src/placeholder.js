@@ -54,7 +54,7 @@
 
             extended_defaults = this._extendDefaults();
 
-        if (!_.isObject(extended_defaults)) extended_defaults = { };
+        if (typeof extended_defaults !== 'object') extended_defaults = { };
 
         this.config     = $.extend(true, defaults, extended_defaults, options || { });
         this.enabled    = this.config.enabled;
@@ -98,14 +98,14 @@
     Placeholder.prototype.applyPlaceholders = function () {
         var classnames = this.config.classnames;
 
-        this.$elements.each(_(function (i, obj) {
+        this.$elements.each($.proxy(function (i, obj) {
             var $obj = $(obj);
 
             $obj.val($obj.attr('placeholder'))
                 .addClass(classnames.state_inactive);
 
             this.bindEvents($obj);
-        }).bind(this));
+        }, this));
     };
 
     Placeholder.prototype.bindEvents = function ($obj) {

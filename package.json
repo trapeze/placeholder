@@ -5,8 +5,7 @@
     "author": "Trapeze Media",
     "devDependencies": {
         "mocha": "*",
-        "chai": "*",
-        "underscore": "*"
+        "chai": "*"
     },
     "main": "./src/placeholder.js"
 }
