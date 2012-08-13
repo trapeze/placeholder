@@ -11,36 +11,15 @@
     var NAME    = 'Placeholder',
         VERSION = '0.1';
 
-
-    // Define Trapeze namespace, if necessary
-    var Trapeze = (root.Trapeze || (root.Trapeze = { }));
-
-
     // Map dependancies to local variables.
     var $           = root.jQuery,
         _           = root._,
         Modernizr   = root.Modernizr;
 
-
-    // Debugging
-    var Debug = root.Debug,
-        debug = !!(Debug && Debug.constructor && Debug.call && Debug.apply) ? new Debug(NAME) : { },
-        log   = debug.bind ? debug.bind('log') : function () { };
-
-    if (debug.require) {
-        // Test core libraries.
-        debug.require('jQuery not found', $);
-
-        // Test Modernizr and Modernizr feature tests.
-        debug.require('Modernizr not found', Modernizr);
-        debug.require('Modernizr.input.placeholder not found', Modernizr.input.placeholder);
-    }
-
-
     // Placeholder
     // ===========
 
-    Placeholder = Trapeze.Placeholder = function (options) {
+    Placeholder = root.Placeholder = function (options) {
         var defaults = {
                 selector : "[placeholder]",
                 enabled  : true,

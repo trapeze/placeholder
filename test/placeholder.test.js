@@ -1,31 +1,24 @@
 var should = chai.should();
 
 suite('Placeholder Globals', function () {
-    Trapeze.ph = new Trapeze.Placeholder();
-    var ph = Trapeze.ph;
-
-    test('Trapeze namespace should exist', function() {
-        Trapeze.should.be.a('object');
-    });
+    window.ph = new Placeholder();
 
     test('Placeholder should be a function', function() {
-        Trapeze.Placeholder.should.be.a('function');
+        Placeholder.should.be.a('function');
     });
 
     test('Placeholder instance "ph" should be instance of Placeholder',
     function() {
-        Trapeze.Placeholder.should.be.a('function');
-        ph.should.be.instanceOf(Trapeze.Placeholder);
+        ph.should.be.instanceOf(Placeholder);
     });
 });
 
 $(function () {
     suite('Placeholder Active', function () {
         Modernizr.input.placeholder = false;
-        Trapeze.ph = new Trapeze.Placeholder();
+        ph = new Placeholder();
 
-        var ph = Trapeze.ph,
-            val = 'Placeholder',
+        var val = 'Placeholder',
             iclass = ph.config.classnames.state_inactive,
             aclass = ph.config.classnames.state_active;
 
