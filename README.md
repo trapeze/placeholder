@@ -26,9 +26,6 @@ Dependencies
 ------------
 
 * [jQuery](http://jquery.com/) 1.7+
-* A build of Modernizr with [tests for Input
-  Attributes](http://modernizr.com/download/#-input).
-
 
 Usage
 -----

@@ -1,26 +1,25 @@
 var should = chai.should();
 
-suite('Placeholder Globals', function () {
-    window.ph = new Placeholder();
-
-    test('Placeholder should be a function', function() {
-        Placeholder.should.be.a('function');
-    });
-
-    test('Placeholder instance "ph" should be instance of Placeholder',
-    function() {
-        ph.should.be.instanceOf(Placeholder);
-    });
-});
-
 $(function () {
     suite('Placeholder Active', function () {
-        Modernizr.input.placeholder = false;
-        ph = new Placeholder();
+        // patch placeholder test function
+        Placeholder.prototype._testForPlaceholder = function () {
+            return false;
+        };
+        window.ph = new Placeholder();
 
         var val = 'Placeholder',
             iclass = ph.config.classnames.state_inactive,
             aclass = ph.config.classnames.state_active;
+
+        test('Placeholder should be a function', function() {
+            Placeholder.should.be.a('function');
+        });
+
+        test('Placeholder instance "ph" should be instance of Placeholder',
+        function() {
+            ph.should.be.instanceOf(Placeholder);
+        });
 
         test('Elements with Placeholders should be selected', function () {
             ph.$elements.should.have.length(2);
@@ -86,4 +85,6 @@ $(function () {
             });
         });
     });
+
+    mocha.run();
 });
