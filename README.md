@@ -41,7 +41,7 @@ To use the application in your project follow the instructions below:
 
 1. Instantiate the app:
 
-        Trapeze.placeholder = new Trapeze.Placeholder();
+        placeholder = new Placeholder();
 
 
 Developing
