@@ -13,8 +13,7 @@
 
     // Map dependancies to local variables.
     var $           = root.jQuery,
-        _           = root._,
-        Modernizr   = root.Modernizr;
+        _           = root._;
 
     // Placeholder
     // ===========
@@ -48,6 +47,14 @@
         this.selectElements();
     };
 
+    Placeholder.prototype._testForPlaceholder = function () {
+        // Thanks to Michael Taylor for his input attribute tests:
+        // http://miketaylr.com/code/input-type-attr.html
+        var el = document.createElement('input');
+
+        return !!(el.placeholder === '') && !!(el.placeholder !== undefined);
+    };
+
     Placeholder.prototype.selectElements = function () {
         var config = this.config,
             selector = config.selector,
@@ -58,7 +65,7 @@
             regex = /([0-9\.]+) Safari/,
             match = agent.match(regex);
 
-        if (! Modernizr.input.placeholder) {
+        if (!this._testForPlaceholder()) {
             this.$elements = $(selector);
             this.$form = this.$elements.parents('form');
 
