@@ -1,24 +1,29 @@
 //  Trapeze.Placeholder 1.0
 
-(function () {
-    // Establish the global scope.
-    var root;
-    root = typeof window !== "undefined" && window !== null ? window : global;
-
+(function (global, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], function ($) {
+            // Also create a global in case some scripts
+            // that are loaded still are looking for
+            // a global even when an AMD loader is in use.
+            return (global.Placeholder = factory($));
+        });
+    } else {
+        // Browser globals
+        global.Placeholder = factory(global.jQuery);
+    }
+}(this, function ($) {
     // Initial setup
     // =============
 
     var NAME    = 'Placeholder',
         VERSION = '0.1';
 
-    // Map dependancies to local variables.
-    var $           = root.jQuery,
-        _           = root._;
-
     // Placeholder
     // ===========
 
-    Placeholder = root.Placeholder = function (options) {
+    Placeholder = function (options) {
         var defaults = {
                 selector : "[placeholder]",
                 enabled  : true,
@@ -112,5 +117,6 @@
         });
     };
 
-}).call(this);
+    return Placeholder;
 
+}));
