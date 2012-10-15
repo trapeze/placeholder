@@ -41,7 +41,9 @@ To use the application in your project follow the instructions below:
 
 1. Instantiate the app:
 
-        placeholder = new Placeholder();
+        $(function () {
+            placeholder = new Placeholder();
+        });
 
 
 Developing
