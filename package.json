@@ -1,11 +1,11 @@
 {
     "name": "placeholder",
     "description": "implements placeholder attributes in older browsers",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "author": "Trapeze Media",
     "devDependencies": {
         "mocha": "*",
         "chai": "*"
     },
-    "main": "./src/placeholder.js"
+    "main": "./js/placeholder.js"
 }

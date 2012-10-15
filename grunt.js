@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         lint: {
-            all: ['src/placeholder.js', 'test/*.test.js']
+            all: ['js/placeholder.js', 'test/*.test.js']
         },
         jshint: {
             options: {
@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         },
         min: {
             dist: {
-                src: ['src/placeholder.js'],
+                src: ['js/placeholder.js'],
                 dest: 'dist/placeholder.min.js'
             }
         }
