@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         min: {
             dist: {
                 src: ['js/placeholder.js'],
-                dest: 'js/placeholder.min.js'
+                dest: 'dist/placeholder.min.js'
             }
         }
     });
