@@ -1,22 +1,32 @@
 module.exports = function(grunt) {
 
+    grunt.loadTasks('tasks');
+
     grunt.initConfig({
+        pkg: '<json:package.json>',
+
         lint: {
-            all: ['js/placeholder.js', 'test/*.test.js']
+            all: ['js/<%= pkg.name %>.js', 'test/*.test.js']
         },
+
         jshint: {
             options: {
                 es5: true,
                 expr: true
             }
         },
-        docs: {
-            all: ['README.md']
+
+        mocha: {
+            test: {
+                src: [ 'test/index.html' ]
+            }
         },
+
         watch: {
             files: '<config:lint.all>',
-            tasks: 'lint'
+            tasks: 'lint mocha'
         },
+
         min: {
             dist: {
                 src: ['js/placeholder.js'],
@@ -25,5 +35,5 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', 'lint test');
+    grunt.registerTask('default', 'lint mocha min');
 };

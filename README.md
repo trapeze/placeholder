@@ -56,9 +56,14 @@ Developing
 
 Run the following from the placeholder directory.
 
-        npm install
-        open test/index.html
+    npm run-script setup-tests
+    open test/index.html
+
+Or run the tests in a PhantomJS instance.
+
+    brew install phantomjs
+    grunt mocha
 
 ### Distribution
 
-    grunt min
+    grunt
