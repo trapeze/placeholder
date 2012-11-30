@@ -1,6 +1,8 @@
 Placeholder
 ===========
 
+[![Build Status](https://secure.travis-ci.org/tylerball/placeholder.png?branch=master)](https://travis-ci.org/tylerball/placeholder)
+
 `Placeholder` adds support for the "placeholder" input attribute in older
 browsers.
 
