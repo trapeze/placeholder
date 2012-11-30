@@ -7,6 +7,7 @@
         "grunt": "*",
         "bower": "*",
         "mocha": "*",
+        "chai": "*",
         "mocha-phantomjs": "*"
     },
     "scripts": {
