@@ -5,13 +5,9 @@
     "author": "Trapeze Media",
     "devDependencies": {
         "grunt": "*",
-        "bower": "*",
         "mocha": "*",
         "chai": "*",
         "mocha-phantomjs": "*"
-    },
-    "scripts": {
-        "setup-tests": "npm install && cd test && bower install"
     },
     "main": "./js/placeholder.js"
 }
